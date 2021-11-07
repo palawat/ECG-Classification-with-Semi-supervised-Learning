@@ -10,10 +10,17 @@ The challenge of this dataset is is quite small for a supervised deep learning m
 ## SSL with Bi-LSTM model
 ![](images/SSL_architect.png)
 
+### Methodology 
+**Phase 1**: Time-Series (Inputs) Reconstruction (Unsupervised Learning)
 
+Train the autoencoder (architecture on the left side) to reconstruct the input data, i.e., X is both input and output. The objective is to make the encoder learn dense representations of their inputs without requiring their labels. 
+
+**Phase 2**: Classify types of ECG signals (Supervised Learning)
+
+Take the encoder (or codings) from the autoencoder to train a classifier on the training data, i.e., X is the input and Y is the output.
 
 ### Evaluation on the Test Data
-After training the model, the model was evaluated on the test data and it could achieve **91%** accuracy, which is *higher than the best accuracy score* showing in the [website](http://www.timeseriesclassification.com/description.php?Dataset=ECG200) (89.05%). The confusion matrix of SSL with Bi-LSTM model predictions on the testing is shown below.
+After training the model, the model was evaluated on the test data and it could achieve **91%** accuracy, which is *higher than the best accuracy score* shown on the [website](http://www.timeseriesclassification.com/description.php?Dataset=ECG200) (89.05%). The confusion matrix of SSL with Bi-LSTM model predictions on the testing is shown below.
 
 ![](images/confusion_matrix.png)
 
