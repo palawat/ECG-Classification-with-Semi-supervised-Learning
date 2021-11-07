@@ -5,7 +5,7 @@ Electrocardiogram (ECG) analysis is one of the tasks that deep learning may help
 
 ![](images/exampleECG.png)
 
-The challenge of this dataset is is quite small for a supervised deep learning model to work well. Therefore, **semi-supervised learning** is considered to learn features by Bi-directional LSTM Autoencoder (*Unsupervised learning*). After that, the encoder part (with pre-trained weights) of the autoencoder is used to build a RNN predictive model (*Supervised learning*). 
+The challenge of this dataset is is quite small for a supervised deep learning model to work well. Therefore, **semi-supervised learning** is considered to learn features by Bi-directional LSTM Autoencoder (*Unsupervised learning*). After that, the encoder part (with pre-trained weights) of the autoencoder is used to build a machine learning classifier (*Supervised learning*). 
 
 ## SSL with Bi-LSTM model
 ![](images/SSL_architect.png)
@@ -17,10 +17,13 @@ Train the autoencoder (architecture on the left side) to reconstruct the input d
 
 **Phase 2**: Classify types of ECG signals (Supervised Learning)
 
-Take the encoder (or codings) from the autoencoder to train a classifier on the training data, i.e., X is the input and Y is the output.
+Take the encoder (or codings) from the autoencoder to train a Random Forest classifier on the training data, i.e., X is the input and Y is the output. Nested 5-fold cross-validation is used for selection of best parameters and model evaluation.
 
 ### Evaluation on the Test Data
-After training the model, the model was evaluated on the test data and it could achieve **91%** accuracy, which is *higher than the best accuracy score* shown on the [website](http://www.timeseriesclassification.com/description.php?Dataset=ECG200) (89.05%). The confusion matrix of SSL with Bi-LSTM model predictions on the testing is shown below.
+
+![](images/report_table.JPG)
+
+From the table, the Semi-Supervised Random Forest could achieve **93%** accuracy, which is *higher than the best accuracy score* shown on the [website](http://www.timeseriesclassification.com/description.php?Dataset=ECG200) (89.0%). The confusion matrix of this model predictions on the test data is shown below.
 
 ![](images/confusion_matrix.png)
 
