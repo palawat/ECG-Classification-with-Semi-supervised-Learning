@@ -28,3 +28,4 @@ After training the model, the model was evaluated on the test data and it could 
 #### References:
 - http://www.timeseriesclassification.com/description.php?Dataset=ECG200
 - https://www.tensorflow.org/tutorials/generative/autoencoder
+- Geron, Aurelien. Hands-on Machine Learning with Scikit-Learn, Keras and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems. 2nd ed., O’Reilly, 2019.
